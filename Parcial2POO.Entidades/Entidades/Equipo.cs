@@ -8,25 +8,48 @@ namespace Parcial2POO.Entidades.Entidades
 {
     public class Equipo
     {
-        private static Deporte Deporte { get; set; }
-        private List<Jugador> Jugadores;
+        private static Deporte deporte;
+        public Deporte Deporte
+        {
+            set { deporte = value; }
+            get { return deporte; }
+        }
+        private List<Jugador> jugadores;
+
+        public List<Jugador> Jugadores
+        {
+            get { return jugadores; }
+        }
+
         private DirectorTecnico directorTecnico;
-        private string Nombre;
+        public DirectorTecnico DirectorTecnico
+        {
+            get { return directorTecnico; }
+        }
+
+
+        private string nombre;
+        public string Nombre
+        {
+            get { return nombre; }
+            set { nombre = value; }
+        }
+
 
         static Equipo()
         {
-            Deporte = Deporte.Futbol;
+            deporte = Deporte.Futbol;
         }
         private Equipo()
         {
-            Jugadores = new List<Jugador>();
+            jugadores = new List<Jugador>();
         }
         public Equipo(string n, DirectorTecnico dt)
         {
             Nombre = n;
             directorTecnico = dt;
         }
-        public Equipo(string n, DirectorTecnico dt, Deporte d)
+        public Equipo(string n, DirectorTecnico dt, Deporte d):this()
         {
             Nombre = n;
             directorTecnico = dt;
@@ -52,14 +75,20 @@ namespace Parcial2POO.Entidades.Entidades
         public static bool operator +(Jugador j, Equipo e)
         {
             bool agregado = false;
+            bool capitan = false;
             if (j!=e)
             {
-                if (e.ExisteCapitan())
+                if (j.EsCapitan)
+                {
+                    capitan = true;
+                }
+                if (e.ExisteCapitan()==false && capitan==false || e.ExisteCapitan() == false && capitan == true || e.ExisteCapitan() == true && capitan == false)
                 {
                     agregado = true;
                     e.Jugadores.Add(j);
 
-                }            }
+                }
+            }
             return agregado;
         }
         public static bool operator -(Jugador j, Equipo e)

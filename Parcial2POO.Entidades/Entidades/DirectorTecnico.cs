@@ -19,7 +19,7 @@ namespace Parcial2POO.Entidades.Entidades
         }
         public override string FichaTecnica()
         {
-            return $"{Nombre.ToUpper()} {Apellido.ToUpper()}, director tecino";
+            return $"{Nombre.ToUpper()} {Apellido.ToUpper()}, director tecnico";
         }
     }
 }

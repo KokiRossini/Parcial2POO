@@ -8,42 +8,30 @@ namespace Parcial2POO.Entidades.Entidades
 {
     public class Jugador : Persona
     {
-        private int Numero { get; }
+        private int numero;
+        public int Numero
+        {
+            get { return numero; }
+        }
         private bool esCapitan;
-
         public bool EsCapitan
         {
             get { return esCapitan; }
         }
-        //TODO: ver el tema de es capitan supuestamente tiene wue ser privado y solo get
-
-        //private bool esCapitan { get; }
-
 
         private static Tipo Tipo { get; }
         static Jugador()
         {
             Tipo = Tipo.Jugador;
         }
-        //public bool Capitan()
-        //{
-        //    if (esCapitan==true)
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
         public Jugador(string a, string n) : base(a, n)
         {
-            Numero = 0;
+            numero = 0;
             esCapitan = false;
         }
         public Jugador(string a, string n, int num, bool esC) : base(a, n)
         {
-            Numero = num;
+            numero = num;
             esCapitan = esC;
         }
 

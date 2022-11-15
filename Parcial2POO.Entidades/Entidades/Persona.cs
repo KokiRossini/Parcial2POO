@@ -7,14 +7,22 @@ using System.Threading.Tasks;
 namespace Parcial2POO.Entidades.Entidades
 {
     public abstract class Persona
-    {
-        private protected string Apellido { get; }
-        private protected string Nombre { get; }
+    {        
+        private string apellido;
+        public string Apellido
+        {
+            get { return apellido; }
+        }
 
+        private string nombre;
+        public string Nombre
+        {
+            get { return nombre; }
+        }
         public Persona(string a, string n)
         {
-            Apellido = a;
-            Nombre = n;
+            apellido = a;
+            nombre = n;
         }
         public abstract string FichaTecnica();
         public virtual string NombreCompleto()
